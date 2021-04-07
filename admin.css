@@ -1,0 +1,444 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html {
+  font-size: 63%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: #12121f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar {
+  width: 700px;
+  height: 750px;
+  background-color: #222227;
+  box-shadow: 0 8px 60px rgba(0, 0, 0, alpha);
+}
+
+.month {
+  width: 100%;
+  height: 120px;
+  background-color: #167e56;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px;
+  text-align: center;
+}
+
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: flex;
+  padding: 8px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3px;
+  border-color: white;
+}
+
+#AC_navRight,
+#AC_navLeft {
+  min-width: 10px;
+  min-height: 10px;
+  transition: 1s;
+}
+
+#AC_navLeft {
+  transform: rotate(-220deg);
+}
+#AC_navRight {
+  transform: rotate(320deg);
+}
+
+.month i {
+  font-size: 20px;
+  cursor: pointer;
+}
+.month h1 {
+  font-size: 40px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+  margin-top: -5px;
+}
+.month h4 {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: -10px;
+}
+.month h3 {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+.month p {
+  font-size: 12px;
+}
+
+tr {
+  min-width: 100%;
+  min-height: 80px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+}
+
+table tr .weekdays {
+  font-size: 16px;
+  letter-spacing: 2px;
+  min-width: calc(688px / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.days {
+  min-width: 100%;
+  transition: all 0.3s ease;
+  padding: 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.day {
+  min-width: 100%;
+  transition: all 0.3s ease;
+  padding: 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+}
+td {
+  min-height: 50px;
+  border-radius: 50px;
+  transition: 15px;
+}
+
+.days a {
+  font-size: 16px;
+  margin: 4px;
+  min-width: calc(620px / 7);
+  border-radius: 88.5px;
+  min-height: 88.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.day a {
+  font-size: 16px;
+  margin: 4px;
+  min-width: calc(620px / 7);
+  border-radius: 88.5px;
+  min-height: 88.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  height: 40px;
+}
+.days a:hover:not(today) {
+  background-color: black;
+  border: 2px solid #777;
+  cursor: pointer;
+}
+.day a:hover:not(today) {
+  background-color: black;
+  border: 2px solid #777;
+  cursor: pointer;
+}
+/*
+input {
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  padding: 2px;
+}
+*/
+
+.prev {
+  opacity: 0.5;
+}
+.today {
+  background-color: #167e56;
+}
+.weekDay {
+  display: none;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {
+  margin: auto;
+  position: relative;
+  padding: 2px 16px;
+  width: 100%; /* Full width */
+}
+.description {
+  margin: auto;
+  position: relative;
+  padding: 2px 16px;
+  width: 100%; /* Full width */
+}
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+#diffinday {
+  background-color: #5cb85c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#add {
+  appearance: button;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+}
+
+#show {
+  justify-content: center;
+  display: flex;
+}
+
+@-o-viewport {
+  zoom: 1;
+  width: extend-to-zoom;
+}
+@-ms-viewport {
+  zoom: 1;
+  width: extend-to-zoom;
+}
+
+.indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 100px;
+  background-color: rgb(51, 6, 212);
+  margin-left: 0px;
+  margin-right: -6px;
+  margin-top: 18px;
+  position: relative;
+  visibility: collapse;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  .calendar {
+    width: 100%;
+  }
+  .days {
+    width: 100%;
+    overflow: auto;
+  }
+  .modal {
+    width: 100%; /* Full width */
+  }
+  .modal-content {
+    width: 70%;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 3px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid red;
+}
+
+.w3-button w3-right w3-white w3-border {
+  position: relative;
+  width: 50px;
+}
+
+.save {
+  box-sizing: border-box;
+  background-color: white;
+  padding: 7px 15px;
+  justify-content: right;
+}
+.save:hover {
+  background-color: #6060fa;
+}
+
+.w3-button w3-blue {
+  justify-content: left;
+}
+
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 1px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+#delButt {
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  appearance: button;
+  word-spacing: normal;
+  margin-top: 10px;
+  margin-top: 20px;
+  height: 20px;
+  width: 45px;
+}

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Admin | <%= user.name%></title>
+    <link rel="stylesheet" href="/admin.css">
+  <link rel="stylesheet" href="/w3.css" />
+    <link rel="stylesheet" href="/eventCSS.css">
+</head>
+<body> 
+        <div class="container">
+            <div class="calendar">
+                <div class="month">
+                    <i id="AC_navLeft"></i>
+                    <div class="date">
+                        <h1>May</h1>
+                        <h4>Year</h4>
+                        <p>Thurs May 29,2020</p>
+                    </div>
+                    <i id="AC_navRight"></i>
+                </div>
+               
+                <div class="days">
+                 
+                </div>
+                <br><br>
+                <p id="diffinday"></p>
+
+
+            <br><br>
+            <p></p>
+        </div>
+      
+</div>
+
+<div id="dispEvent"></div>
+<p id="show">
+  <button id="butt">ADD EVENTS</button>
+   <button
+        onclick="document.getElementById('id01').style.display='block'"
+        class="w3-button w3-black" 
+      >
+        Delete Event
+      </button>
+</p>
+<br><br>
+
+
+ 
+
+
+
+
+<!-- Trigger/Open The Modal -->
+
+ <br>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2 id="head"></h2>
+    </div>
+    <form action="/admin">
+
+    <label for="">Event</label><input type="text" class="modal-body" required></input><br>
+    <label for="">Description</label><input type="text" class="description" required></input><br>
+    <label for="">Venue</label><input type="text" id="venu" required>
+    <label for="">Start Date</label><br><input type="date" class="start_date" required>
+    <label for="">Stop Date</label><br><input type="date" class="stop_date" required>
+    <label for="">Start Time</label><br><input type="time" class="start_time" required>
+    <label for="">Stop Time</label><br><input type="time" class="stop_time" required>
+    <button id="AddEvent">Add Event</button>
+    </form>
+    <div class="modal-footer">
+     <div id="snackbar"></div>
+    </div>
+  </div>
+            </div>
+        <p id="year"></p>
+        <br>
+        <br>
+        <br>
+
+        <div class="w3-container">
+
+      <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom">
+          <header class="w3-container w3-blue">
+            <span
+              onclick="document.getElementById('id01').style.display='none'"
+              class="w3-button w3-blue w3-xlarge w3-display-topright"
+              >&times;</span
+            >
+            <h2 id="header"></h2>
+          </header>
+
+          <div class="w3-bar w3-border-bottom">
+            <button
+              class="tablink w3-bar-item w3-button"
+              onclick="openCity(event, 'London')"
+            >
+              Shift Event
+            </button>
+            <button
+              class="tablink w3-bar-item w3-button"
+              onclick="openCity(event, 'Paris')"
+            >
+              One Event
+            </button>
+            <button
+              class="tablink w3-bar-item w3-button"
+              onclick="openCity(event, 'Tokyo')"
+            >
+              Multiple Events
+            </button>
+          </div>
+<div>
+  
+          <div id="London" class="w3-container city">
+             <label for="">Event</label><input type="text" class="modal-body" required></input><br>
+           <h4>FROM</h4><br>
+              <label for="">Start Date</label><br><input type="date" class="start_date" required>
+              <label for="">Stop Date</label><br><input type="date" class="stop_date"><br>
+    <h4>TO</h4><br>
+              <label for="">Start Date</label><br><input type="date" class="start_date1" required>
+              <label for="">Stop Date</label><br><input type="date" class="stop_date1" required>
+
+               <div class="w3-container w3-light-grey w3-padding">
+            <button
+              class="w3-button w3-right w3-white w3-border"
+              onclick="document.getElementById('id01').style.display='none'"
+            >
+              Close
+            </button>
+            <button class="save" id="shift">Save</button>
+          </div>
+          </div>
+
+
+          <div id="Paris" class="w3-container city">
+            <label for="">Event</label><input type="text" class="modal-body" required></input><br>
+             <label for="">Date</label><br><input type="date" class="start_date" required>
+
+     <div class="w3-container w3-light-grey w3-padding">
+            <button
+              class="w3-button w3-right w3-white w3-border"
+              onclick="document.getElementById('id01').style.display='none'"
+            >
+              Close
+            </button>
+            <button class="save" id="one">Save</button>
+          </div>
+          </div>
+
+          <div id="Tokyo" class="w3-container city">
+
+            <div class="row">
+                 <label for="">Event</label><input type="text" class="modal-body" required></input><br>
+                 <label for="">Start Date</label><br><input type="date" class="start_date" required>
+                 <label for="">Stop Date</label><br><input type="date" class="stop_date" required>
+           </div><br>
+
+           <div class="addrow"></div>
+
+                <button class="w3-button w3-blue" id="append">Add a row</button>
+
+            <div class="w3-container w3-light-grey w3-padding">
+
+               <button class="w3-button w3-right w3-white w3-border"
+                       onclick="document.getElementById('id01').style.display='none'">
+              Close</button>
+            <button class="save" id="multiple">Save</button>
+
+          </div>
+          </div>
+
+          
+          </div>
+
+         
+</div>
+        </div>
+      </div>
+    </div>
+       
+        <script type="module" src="/js/admin.js"></script>
+
+
+   <script>
+      document.getElementsByClassName("tablink")[0].click();
+
+      function openCity(evt, cityName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+          tablinks[i].classList.remove("w3-light-grey");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.classList.add("w3-light-grey");
+      }
+
+       document.querySelectorAll(".save").forEach(btn=>{
+         btn.addEventListener("click", function snackbar(){
+        var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+      })
+       })
+
+       function autoRefresh(){
+         document.querySelector(".container").location = document.querySelector(".container").location.reload()
+
+       }
+       setInterval('autoRefresh',2000)
+  </script>
+
+</body>
+</html>
